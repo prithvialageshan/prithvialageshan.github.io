@@ -1411,9 +1411,62 @@ section {
     background-color: transparent;
     border: 1px solid var(--color-primary-300);
 }
+/* Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-neutral-0);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.loader-logo {
+    font-size: 80px;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    display: flex;
+    gap: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+#preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-logo">
+            <span class="logo-bracket">{</span>
+            <span class="logo-bracket">}</span>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="nav" id="navbar">
         <div class="nav-container">
@@ -2014,22 +2067,22 @@ section {
                 </div>
 
                 <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
+                    <form action="mailto:prithvia01@gmail.com" method="POST" enctype="text/plain" class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
+                            <input type="text" id="name" name="Name" required placeholder="Your name">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="yourname@email.com">
+                            <input type="email" id="email" name="Email" required placeholder="yourname@email.com">
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                            <input type="text" id="subject" name="Subject" required placeholder="What's this about?">
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Tell me about..."></textarea>
+                            <textarea id="message" name="Message" rows="5" required placeholder="Tell me about..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">
                             <span>Send Message</span>
@@ -2130,6 +2183,43 @@ section {
                     link.classList.add('active');
                 }
             });
+        });
+
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                // Extended delay to show the animation
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                }, 1500);
+            }
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.section-header, .project-card, .experience-card, .value-card, .skill-category, .contact-card, .contact-form-wrapper');
+        
+        // Add reveal class
+        revealElements.forEach(el => {
+            el.classList.add('reveal');
+        });
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
         });
     </script>
 </body>
