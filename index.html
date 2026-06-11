@@ -26,17 +26,17 @@
     --color-neutral-800: #F3F4F6; /* Body text */
     --color-neutral-900: #FFFFFF; /* Headings */
 
-    /* Brand Colors (Neon Pink) */
-    --color-primary-100: rgba(255, 0, 127, 0.15);
-    --color-primary-200: rgba(255, 0, 127, 0.25);
-    --color-primary-300: #FF99CC;
-    --color-primary-400: #FF66B2;
-    --color-primary-500: #FF007F;
-    --color-primary-600: #FF3399;
-    --color-primary-700: #FFCCE5;
+    /* Brand Colors (Blue) */
+    --color-primary-100: rgba(0, 102, 255, 0.15);
+    --color-primary-200: rgba(0, 102, 255, 0.25);
+    --color-primary-300: #80B3FF;
+    --color-primary-400: #4D94FF;
+    --color-primary-500: #0066FF;
+    --color-primary-600: #3385FF;
+    --color-primary-700: #E6F0FF;
 
-    /* Accent Colors (Neon) */
-    --color-accent-purple: #9D00FF;
+    /* Accent Colors */
+    --color-accent-purple: #00FF9D; /* Used as the secondary color in gradients */
     --color-accent-teal: #00E5FF;
     --color-accent-green: #00FF88;
     --color-accent-orange: #FF5500;
@@ -138,7 +138,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
-    color: var(--color-neutral-900);
+    background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 a {
@@ -235,7 +239,8 @@ img {
     transition: all var(--transition-fast);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active:not(.nav-cta) {
     color: var(--color-primary-400);
     background-color: var(--color-primary-100);
 }
@@ -248,7 +253,7 @@ img {
 }
 
 .nav-cta:hover {
-    background: linear-gradient(135deg, var(--color-primary-600) 0%, #B026FF 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, #00E68D 100%);
     transform: translateY(-2px);
     box-shadow: var(--shadow-base);
     color: var(--color-neutral-0);
@@ -421,7 +426,7 @@ img {
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--color-primary-600) 0%, #B026FF 100%);
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, #00E68D 100%);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
@@ -1376,6 +1381,36 @@ section {
     .section-title { font-size: var(--font-size-2xl); }
     .project-impact { grid-template-columns: 1fr; }
 }
+
+/* Blue and Green Gradient text effect for badges/labels */
+.section-label,
+.skill-level,
+.value-number,
+.project-tag,
+.impact-value,
+.period-badge,
+.tech-cloud span,
+.contact-card a,
+.quote-icon,
+.hero-badge span:nth-child(2),
+.project-title,
+.project-problem h4,
+.project-solution h4 {
+    background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Ensure borders are visible where backgrounds were used previously */
+.hero-badge,
+.project-tag,
+.period-badge,
+.tech-cloud span {
+    background-color: transparent;
+    border: 1px solid var(--color-primary-300);
+}
     </style>
 </head>
 <body>
@@ -1954,7 +1989,8 @@ section {
                     <div class="contact-card">
                         <div class="contact-icon">
                             <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                                <path d="M24 19.5V22.5C24.0011 22.7762 23.9441 23.0494 23.8326 23.3018C23.721 23.5542 23.5573 23.7799 23.3521 23.9638C23.1469 24.1477 22.9046 24.2858 22.6407 24.3688C22.3769 24.4518 22.0974 24.4778 21.822 24.445C18.7428 24.1015 15.7869 23.0668 13.19 21.421C10.7738 19.9247 8.72471 17.8756 7.22838 15.4595C5.57896 12.8512 4.54318 9.88242 4.20396 6.79096C4.17121 6.51645 4.19695 6.23787 4.27932 5.97463C4.36169 5.71139 4.49882 5.46964 4.68146 5.26467C4.86411 5.0597 5.08812 4.89586 5.33891 4.78343C5.5897 4.671 5.86117 4.61287 6.13596 4.61196H9.13596C9.62521 4.60722 10.0997 4.77759 10.4719 5.09255C10.8441 5.4075 11.0894 5.84463 11.162 6.32696C11.2975 7.28995 11.5486 8.23395 11.91 9.13996C12.0428 9.47592 12.0727 9.84424 11.9958 10.1976C11.9189 10.5509 11.7386 10.8741 11.476 11.127L10.178 12.425C11.5766 14.9384 13.6166 16.9784 16.13 18.377L17.428 17.079C17.6809 16.8164 18.0041 16.6361 18.3574 16.5592C18.7108 16.4823 19.0791 16.5122 19.415 16.645C20.321 17.0064 21.265 17.2575 22.228 17.393C22.715 17.4662 23.1557 17.7152 23.4714 18.0928C23.7872 18.4705 23.9556 18.9512 23.946 19.445L24 19.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 7C4 5.89543 4.89543 5 6 5H22C23.1046 5 24 5.89543 24 7V21C24 22.1046 23.1046 23 22 23H6C4.89543 23 4 22.1046 4 21V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M24 7L14 14L4 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <div>
@@ -2065,14 +2101,35 @@ section {
             });
         });
 
-        // Sticky Navbar effect
+        // Sticky Navbar & Active Menu Highlighting
         const navbar = document.getElementById('navbar');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
         window.addEventListener('scroll', () => {
+            // Sticky Navbar effect
             if (window.scrollY > 50) {
                 navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
             } else {
                 navbar.style.boxShadow = 'none';
             }
+
+            // Active Navigation Highlight
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
