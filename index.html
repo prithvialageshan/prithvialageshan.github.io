@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prithvi Alageshan — SQL Developer & IT Audit</title>
+<meta name="description" content="Junior SQL Developer & Front-end Developer based in Coimbatore. Skilled in database management, web development, and IT audit." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --bg:#050507;
+  --bg2:#0a0a0f;
+  --bg3:#0f0f1a;
+  --text:#e8eaf6;
+  --muted:#6b6d8a;
+  --dim:#2e3050;
+  --cyan:#00f5ff;
+  --pink:#ff2d9b;
+  --purple:#a855f7;
+  --green:#39ff14;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.12);
+}
+
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* RGB KEYFRAMES */
+@keyframes rgb-cycle{
+  0%  {color:var(--cyan);}
+  25% {color:var(--purple);}
+  50% {color:var(--pink);}
+  75% {color:var(--green);}
+  100%{color:var(--cyan);}
+}
+@keyframes rgb-border{
+  0%  {border-color:rgba(0,245,255,0.5);  box-shadow:0 0 12px rgba(0,245,255,0.15);}
+  25% {border-color:rgba(168,85,247,0.5); box-shadow:0 0 12px rgba(168,85,247,0.15);}
+  50% {border-color:rgba(255,45,155,0.5); box-shadow:0 0 12px rgba(255,45,155,0.15);}
+  75% {border-color:rgba(57,255,20,0.5);  box-shadow:0 0 12px rgba(57,255,20,0.15);}
+  100%{border-color:rgba(0,245,255,0.5);  box-shadow:0 0 12px rgba(0,245,255,0.15);}
+}
+@keyframes rgb-glow{
+  0%  {text-shadow:0 0 20px rgba(0,245,255,0.8),0 0 50px rgba(0,245,255,0.3);}
+  25% {text-shadow:0 0 20px rgba(168,85,247,0.8),0 0 50px rgba(168,85,247,0.3);}
+  50% {text-shadow:0 0 20px rgba(255,45,155,0.8),0 0 50px rgba(255,45,155,0.3);}
+  75% {text-shadow:0 0 20px rgba(57,255,20,0.8),0 0 50px rgba(57,255,20,0.3);}
+  100%{text-shadow:0 0 20px rgba(0,245,255,0.8),0 0 50px rgba(0,245,255,0.3);}
+}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+@keyframes bar-fill{from{width:0;}to{width:var(--pct);}}
+@keyframes rgb-bar{
+  0%  {background:linear-gradient(90deg,var(--cyan),rgba(0,245,255,0.3));}
+  25% {background:linear-gradient(90deg,var(--purple),rgba(168,85,247,0.3));}
+  50% {background:linear-gradient(90deg,var(--pink),rgba(255,45,155,0.3));}
+  75% {background:linear-gradient(90deg,var(--green),rgba(57,255,20,0.3));}
+  100%{background:linear-gradient(90deg,var(--cyan),rgba(0,245,255,0.3));}
+}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+
+/* SCANLINES */
+body::after{
+  content:'';
+  position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(0,0,0,0.06) 3px,rgba(0,0,0,0.06) 4px);
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 3rem;
+  background:rgba(5,5,7,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;
+  animation:rgb-border 5s linear infinite;
+}
+.nav-logo{
+  font-family:'Orbitron',sans-serif;
+  font-weight:900;font-size:14px;letter-spacing:0.1em;
+  text-decoration:none;
+  animation:rgb-cycle 5s linear infinite;
+}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  font-family:'Rajdhani',sans-serif;
+  font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{
+  font-family:'Rajdhani',sans-serif;
+  font-weight:700;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:9px 22px;
+  border:1px solid transparent;
+  color:var(--bg);
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  text-decoration:none;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  transition:filter 0.2s;
+}
+.nav-cta:hover{filter:brightness(1.2);}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:9rem 3rem 5rem;
+  position:relative;overflow:hidden;
+}
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,245,255,0.025) 1px,transparent 1px);
+  background-size:64px 64px;
+}
+.hero-grid::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 75% 35%,rgba(168,85,247,0.09) 0%,transparent 55%),
+    radial-gradient(ellipse at 15% 75%,rgba(0,245,255,0.06) 0%,transparent 50%);
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:1.75rem;
+  animation:rgb-cycle 5s linear infinite;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:inline-block;width:24px;height:1px;background:currentColor;}
+.hero-headline{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(38px,6.5vw,82px);
+  font-weight:900;line-height:1.05;letter-spacing:-0.02em;
+  max-width:860px;margin-bottom:1.75rem;
+}
+.hl-white{color:var(--text);}
+.hl-dim{color:var(--muted);}
+.hl-rgb{animation:rgb-cycle 5s linear infinite,rgb-glow 5s linear infinite;}
+.cursor{
+  display:inline-block;width:3px;height:0.8em;
+  vertical-align:middle;margin-left:5px;
+  animation:blink 1s step-end infinite;
+  background:var(--cyan);
+}
+.hero-sub{
+  font-size:15px;color:var(--muted);line-height:1.85;
+  max-width:500px;margin-bottom:2.75rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem;}
+.btn-rgb{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 30px;
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;color:#050507;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
+  transition:filter 0.2s;
+}
+.btn-rgb:hover{filter:brightness(1.2);}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 30px;
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;color:var(--cyan);
+  border:1px solid transparent;
+  clip-path:polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
+  animation:rgb-border 5s linear infinite;
+  transition:background 0.2s;
+}
+.btn-outline:hover{background:rgba(0,245,255,0.06);}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap;}
+.htag{
+  font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  padding:5px 14px;border:1px solid var(--dim);color:var(--muted);
+  transition:border-color 0.2s,color 0.2s;
+}
+.htag:hover{border-color:var(--cyan);color:var(--cyan);}
+
+/* MARQUEE */
+.marquee-wrap{
+  overflow:hidden;border-top:1px solid transparent;border-bottom:1px solid transparent;
+  padding:0.9rem 0;animation:rgb-border 5s linear infinite;
+}
+.marquee-track{
+  display:flex;gap:2.5rem;
+  animation:marquee 20s linear infinite;white-space:nowrap;
+}
+.marquee-track span{
+  font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+}
+.m-dot{animation:rgb-cycle 5s linear infinite;}
+
+/* SECTION BASE */
+section{padding:6rem 3rem;border-top:1px solid var(--border);}
+.s-eye{
+  font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:1.25rem;display:flex;align-items:center;gap:10px;
+  animation:rgb-cycle 5s linear infinite;
+}
+.s-eye::before{content:'//';font-size:12px;opacity:0.5;}
+.s-title{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(24px,3.5vw,44px);font-weight:900;letter-spacing:-0.01em;
+  line-height:1.1;margin-bottom:3rem;max-width:640px;
+}
+.s-title .dim{color:var(--muted);}
+
+/* STATS */
+.stats-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  border:1px solid transparent;border-radius:4px;overflow:hidden;
+  animation:rgb-border 5s linear infinite;margin-top:1rem;
+}
+.stat{
+  padding:2.25rem 1.75rem;background:var(--bg2);
+  text-align:center;border-right:1px solid var(--border);position:relative;overflow:hidden;
+}
+.stat:last-child{border-right:none;}
+.stat-num{
+  font-family:'Orbitron',sans-serif;font-size:42px;font-weight:900;letter-spacing:-0.02em;
+  display:block;margin-bottom:8px;
+  animation:rgb-cycle 5s linear infinite,rgb-glow 5s linear infinite;
+}
+.stat-label{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start;}
+.about-text{font-size:15px;color:var(--muted);line-height:1.9;}
+.about-text strong{color:var(--text);font-weight:500;}
+.about-highlight{font-size:22px;font-weight:300;line-height:1.5;color:var(--text);margin-bottom:1.5rem;letter-spacing:-0.01em;}
+.about-highlights-grid{display:flex;flex-direction:column;gap:1rem;margin-top:2rem;}
+.ah-card{
+  padding:1.25rem 1.5rem;background:var(--bg2);
+  border:1px solid var(--border);border-left:2px solid var(--cyan);
+  transition:border-color 0.2s,background 0.2s;
+}
+.ah-card:hover{background:var(--bg3);border-color:rgba(0,245,255,0.3);}
+.ah-card:nth-child(2){border-left-color:var(--purple);}
+.ah-card:nth-child(3){border-left-color:var(--pink);}
+.ah-title{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:0.06em;margin-bottom:5px;color:var(--text);}
+.ah-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+
+/* SKILLS */
+.skills-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.sk-group-title{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;animation:rgb-cycle 5s linear infinite;margin-bottom:1.25rem;}
+.sk-list{display:flex;flex-direction:column;gap:10px;}
+.sk-item{display:flex;flex-direction:column;gap:5px;}
+.sk-name-row{display:flex;justify-content:space-between;align-items:center;}
+.sk-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;color:var(--text);}
+.sk-level{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+.sk-bar-bg{height:3px;background:var(--dim);border-radius:0;overflow:hidden;}
+.sk-bar{height:100%;width:0;animation:rgb-bar 5s linear infinite,bar-fill 1.2s ease forwards;animation-delay:0s,0.3s;}
+
+/* CONTRIBUTE CARDS */
+.contrib-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--dim);border:1px solid transparent;border-radius:4px;overflow:hidden;animation:rgb-border 5s linear infinite;}
+.contrib-card{padding:2.5rem 2rem;background:var(--bg2);position:relative;transition:background 0.2s;}
+.contrib-card:hover{background:var(--bg3);}
+.contrib-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink));opacity:0;transition:opacity 0.2s;}
+.contrib-card:hover::before{opacity:1;}
+.contrib-num{
+  font-family:'Orbitron',sans-serif;font-size:32px;font-weight:900;
+  margin-bottom:1rem;display:block;
+  animation:rgb-cycle 5s linear infinite,rgb-glow 5s linear infinite;
+}
+.contrib-title{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.06em;margin-bottom:10px;color:var(--text);}
+.contrib-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* PROJECTS */
+.projects-list{display:flex;flex-direction:column;gap:1px;background:var(--dim);border:1px solid transparent;border-radius:4px;overflow:hidden;animation:rgb-border 5s linear infinite;}
+.proj-card{background:var(--bg2);padding:2.5rem 2.5rem;position:relative;transition:background 0.2s;}
+.proj-card:hover{background:var(--bg3);}
+.proj-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--cyan),var(--purple));opacity:0;transition:opacity 0.2s;}
+.proj-card:hover::before{opacity:1;}
+.proj-header{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;margin-bottom:1.5rem;flex-wrap:wrap;}
+.proj-meta{}
+.proj-badge{
+  display:inline-block;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  padding:3px 10px;border:1px solid transparent;margin-bottom:10px;
+  animation:rgb-border 5s linear infinite;color:var(--cyan);
+}
+.proj-title-text{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;letter-spacing:-0.01em;color:var(--text);margin-bottom:4px;}
+.proj-subtitle{font-size:12px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:0.06em;}
+.proj-tags-row{display:flex;gap:6px;flex-wrap:wrap;}
+.ptag{
+  font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:4px 10px;border:1px solid var(--dim);color:var(--dim);
+  transition:border-color 0.2s,color 0.2s;
+}
+.proj-card:hover .ptag{border-color:rgba(0,245,255,0.25);color:var(--muted);}
+.proj-body{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem;}
+.proj-section-label{
+  font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  margin-bottom:8px;animation:rgb-cycle 5s linear infinite;
+}
+.proj-section-text{font-size:13px;color:var(--muted);line-height:1.7;}
+.proj-outcomes{display:flex;flex-direction:column;gap:5px;margin-top:1rem;}
+.proj-outcome{
+  display:flex;align-items:center;gap:8px;
+  font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--muted);
+}
+.proj-outcome::before{content:'◆';font-size:8px;animation:rgb-cycle 5s linear infinite;flex-shrink:0;}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;}
+.exp-item{
+  display:flex;gap:3rem;padding:2.5rem 0;
+  border-bottom:1px solid var(--border);position:relative;
+}
+.exp-item::after{
+  content:'';position:absolute;left:0;bottom:-1px;width:0;height:1px;
+  background:linear-gradient(90deg,var(--cyan),transparent);
+  transition:width 0.4s ease;
+}
+.exp-item:hover::after{width:100%;}
+.exp-meta{min-width:140px;}
+.exp-period{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;}
+.exp-company-name{
+  font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.04em;
+  animation:rgb-cycle 5s linear infinite;
+}
+.exp-content{flex:1;}
+.exp-role{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.04em;margin-bottom:4px;color:var(--text);}
+.exp-org{font-size:12px;color:var(--muted);margin-bottom:1.25rem;}
+.exp-points{display:flex;flex-direction:column;gap:7px;}
+.ep{font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;}
+.ep::before{content:'▸';position:absolute;left:0;font-size:10px;top:3px;animation:rgb-cycle 5s linear infinite;}
+
+/* CONTACT */
+.contact-inner{max-width:680px;}
+.contact-title{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(28px,4.5vw,52px);font-weight:900;letter-spacing:-0.01em;
+  line-height:1.05;margin-bottom:1.5rem;
+}
+.contact-rgb{animation:rgb-cycle 5s linear infinite,rgb-glow 5s linear infinite;}
+.contact-sub{font-size:15px;color:var(--muted);margin-bottom:2.5rem;line-height:1.7;}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--dim);border:1px solid transparent;border-radius:4px;overflow:hidden;animation:rgb-border 5s linear infinite;margin-bottom:2rem;}
+.contact-info{
+  padding:1.75rem 1.5rem;background:var(--bg2);
+  transition:background 0.2s;
+}
+.contact-info:hover{background:var(--bg3);}
+.contact-info-label{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.contact-info-val{font-size:13px;color:var(--text);text-decoration:none;transition:color 0.2s;}
+.contact-info-val:hover{color:var(--cyan);}
+.contact-links{display:flex;gap:12px;flex-wrap:wrap;}
+.clink{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
+  text-decoration:none;color:var(--muted);
+  border:1px solid var(--dim);
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  transition:border-color 0.2s,color 0.2s,background 0.2s;
+}
+.clink:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,245,255,0.04);}
+.clink.primary{
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  color:#050507;border:none;font-weight:700;
+}
+.clink.primary:hover{filter:brightness(1.15);}
+
+/* QUOTE */
+.quote-section{padding:4rem 3rem;border-top:1px solid var(--border);text-align:center;}
+.quote-text{
+  font-family:'Orbitron',sans-serif;font-size:clamp(16px,2.5vw,26px);font-weight:700;
+  letter-spacing:-0.01em;max-width:700px;margin:0 auto 1rem;
+  animation:rgb-cycle 5s linear infinite;
+}
+.quote-sub{font-size:13px;color:var(--muted);}
+
+/* FOOTER */
+footer{
+  padding:2rem 3rem;border-top:1px solid transparent;
+  display:flex;justify-content:space-between;align-items:center;
+  animation:rgb-border 5s linear infinite;
+}
+footer p{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;color:var(--dim);}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-in.visible{opacity:1;transform:none;}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{padding:7rem 1.5rem 4rem;}
+  section{padding:4rem 1.5rem;}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .skills-cols{grid-template-columns:1fr;gap:2.5rem;}
+  .proj-body{grid-template-columns:1fr;}
+  .exp-item{flex-direction:column;gap:0.5rem;}
+  .exp-meta{min-width:unset;}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">{ PRITHVI_A }</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:prithvia01@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <p class="hero-eyebrow">Open to Opportunities · Coimbatore, TN</p>
+  <h1 class="hero-headline">
+    <span class="hl-white">SQL Developer.</span><br>
+    <span class="hl-dim">Front-end Builder.</span><br>
+    <span class="hl-rgb">IT Audit<span class="cursor"></span></span>
+  </h1>
+  <p class="hero-sub">Turning data into decisions and interfaces into experiences. Passionate about clean systems, risk management, and building tech that actually matters.</p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn-rgb">View Projects ↗</a>
+    <a href="#contact" class="btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-tags">
+    <span class="htag">SQL</span>
+    <span class="htag">React.js</span>
+    <span class="htag">IT Audit</span>
+    <span class="htag">Risk Assessment</span>
+    <span class="htag">Figma</span>
+    <span class="htag">Front-end Dev</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>SQL Development</span><span class="m-dot">◆</span>
+    <span>Front-end Dev</span><span class="m-dot">◆</span>
+    <span>IT Audit</span><span class="m-dot">◆</span>
+    <span>Risk Assessment</span><span class="m-dot">◆</span>
+    <span>React.js</span><span class="m-dot">◆</span>
+    <span>UI/UX Design</span><span class="m-dot">◆</span>
+    <span>Compliance</span><span class="m-dot">◆</span>
+    <span>Workflow Analysis</span><span class="m-dot">◆</span>
+    <span>SQL Development</span><span class="m-dot">◆</span>
+    <span>Front-end Dev</span><span class="m-dot">◆</span>
+    <span>IT Audit</span><span class="m-dot">◆</span>
+    <span>Risk Assessment</span><span class="m-dot">◆</span>
+    <span>React.js</span><span class="m-dot">◆</span>
+    <span>UI/UX Design</span><span class="m-dot">◆</span>
+    <span>Compliance</span><span class="m-dot">◆</span>
+    <span>Workflow Analysis</span><span class="m-dot">◆</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="fade-in">
+  <p class="s-eye">By the Numbers</p>
+  <h2 class="s-title">Impact <span class="dim">at a glance</span></h2>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Projects Delivered</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Client Products</span></div>
+    <div class="stat"><span class="stat-num">2+</span><span class="stat-label">Years in Tech</span></div>
+    <div class="stat"><span class="stat-num">4</span><span class="stat-label">Tech Domains</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade-in">
+  <p class="s-eye">Who I Am</p>
+  <h2 class="s-title">Turning data <span class="dim">into direction</span></h2>
+  <div class="about-grid">
+    <div>
+      <p class="about-highlight">"I don't just write SQL queries — I build systems that make data trustworthy."</p>
+      <p class="about-text">
+        As a <strong>Junior SQL Developer and Front-end Engineer</strong>, I work at the intersection of data and design. I've shipped web platforms for real clients — from a matrimony service to an asset management system — while building a deep interest in <strong>IT Audit, compliance monitoring, and risk management</strong>.
+        <br /><br />
+        What makes me different? I bridge the gap between technical execution and analytical thinking. I care about <strong>data integrity, clean UI, and systems that actually hold up</strong> under real-world conditions.
+        <br /><br />
+        Currently seeking roles where I can contribute to <strong>SQL-driven data operations, IT audit, or front-end engineering</strong> — ideally all three.
+      </p>
+    </div>
+    <div class="about-highlights-grid">
+      <div class="ah-card">
+        <div class="ah-title">Data Integrity & Validation</div>
+        <div class="ah-desc">SQL-driven data validation, reporting, and backend workflow support across live systems.</div>
+      </div>
+      <div class="ah-card">
+        <div class="ah-title">Front-end Engineering</div>
+        <div class="ah-desc">Built responsive, production-grade web interfaces with React.js and vanilla HTML/CSS/JS for real clients.</div>
+      </div>
+      <div class="ah-card">
+        <div class="ah-title">IT Audit & Risk Interest</div>
+        <div class="ah-desc">Strong academic and practical interest in internal controls, compliance monitoring, and risk assessment frameworks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade-in">
+  <p class="s-eye">Technical Expertise</p>
+  <h2 class="s-title">Skills & <span class="dim">Technologies</span></h2>
+  <div class="skills-cols">
+    <div>
+      <p class="sk-group-title">Development</p>
+      <div class="sk-list">
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">SQL</span><span class="sk-level">Advanced</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:85%;"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">HTML / CSS</span><span class="sk-level">Advanced</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:88%;"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">JavaScript</span><span class="sk-level">Intermediate</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:70%;"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">React.js</span><span class="sk-level">Intermediate</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:68%;"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">Database Management</span><span class="sk-level">Advanced</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:82%;"></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="sk-group-title">Audit, Design & Tools</p>
+      <div class="sk-list">
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">IT Audit</span><span class="sk-level">Intermediate</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:65%;"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">Risk Assessment</span><span class="sk-level">Intermediate</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:60%;"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">Compliance Monitoring</span><span class="sk-level">Intermediate</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:58%;"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">Figma / Adobe XD</span><span class="sk-level">Advanced</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:80%;"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-name-row"><span class="sk-name">Workflow Analysis</span><span class="sk-level">Advanced</span></div>
+          <div class="sk-bar-bg"><div class="sk-bar" style="--pct:78%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW I CONTRIBUTE -->
+<section class="fade-in">
+  <p class="s-eye">What Sets Me Apart</p>
+  <h2 class="s-title">How I <span class="dim">contribute</span></h2>
+  <div class="contrib-grid">
+    <div class="contrib-card">
+      <span class="contrib-num">01</span>
+      <div class="contrib-title">Data-Driven Problem Solving</div>
+      <p class="contrib-desc">I write SQL that doesn't just fetch data — it validates, reconciles, and tells a story. Every query I build is designed for accuracy, traceability, and business clarity.</p>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-num">02</span>
+      <div class="contrib-title">Front-end That Actually Works</div>
+      <p class="contrib-desc">From React components to full web platforms, I build interfaces that are responsive, accessible, and aligned with the user's workflow — not just the design mockup.</p>
+    </div>
+    <div class="contrib-card">
+      <span class="contrib-num">03</span>
+      <div class="contrib-title">Audit Mindset in Tech</div>
+      <p class="contrib-desc">I approach every system I touch with an eye for control gaps, data integrity risks, and compliance angles — making me effective in both technical and audit-adjacent roles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section fade-in">
+  <p class="quote-text">"Data is only powerful when it's trustworthy — I build the systems that make that true."</p>
+  <p class="quote-sub">— Prithvi Alageshan</p>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade-in">
+  <p class="s-eye">Featured Work</p>
+  <h2 class="s-title">Projects that <span class="dim">solve real problems</span></h2>
+  <div class="projects-list">
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-meta">
+          <span class="proj-badge">🌐 Web Platform</span>
+          <div class="proj-title-text">Emkey.in</div>
+          <div class="proj-subtitle">Business web application · Front-end development</div>
+        </div>
+        <div class="proj-tags-row">
+          <span class="ptag">HTML/CSS/JS</span><span class="ptag">Front-end</span><span class="ptag">Web App</span>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="proj-section-label">The Challenge</p>
+          <p class="proj-section-text">A business platform needed a responsive, user-friendly front-end that worked seamlessly across devices, with smooth workflow integration and consistent UX.</p>
+        </div>
+        <div>
+          <p class="proj-section-label">My Implementation</p>
+          <p class="proj-section-text">Built and integrated responsive UI components using HTML, CSS, and JavaScript. Handled workflow integration, cross-browser compatibility, and performance optimisation for a clean user experience.</p>
+          <div class="proj-outcomes">
+            <div class="proj-outcome">Responsive across all screen sizes</div>
+            <div class="proj-outcome">Smooth workflow integration</div>
+            <div class="proj-outcome">Optimised load performance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-meta">
+          <span class="proj-badge">🎨 UI/UX Product</span>
+          <div class="proj-title-text">Wezuno</div>
+          <div class="proj-subtitle">Digital product UI · React.js front-end</div>
+        </div>
+        <div class="proj-tags-row">
+          <span class="ptag">React.js</span><span class="ptag">Figma</span><span class="ptag">UI Design</span>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="proj-section-label">The Challenge</p>
+          <p class="proj-section-text">The product needed a clean, consistent design language with improved usability — moving away from an inconsistent interface that hurt user retention.</p>
+        </div>
+        <div>
+          <p class="proj-section-label">My Implementation</p>
+          <p class="proj-section-text">Designed wireframes in Figma and implemented the front-end in React.js. Established a consistent component library and design system, improving interface coherence and usability throughout the application.</p>
+          <div class="proj-outcomes">
+            <div class="proj-outcome">Consistent component design system</div>
+            <div class="proj-outcome">Improved user flow and navigation</div>
+            <div class="proj-outcome">React.js component architecture</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-meta">
+          <span class="proj-badge">💍 Web Platform</span>
+          <div class="proj-title-text">TMSM Matrimony</div>
+          <div class="proj-subtitle">Full matrimony platform · Profile management & search</div>
+        </div>
+        <div class="proj-tags-row">
+          <span class="ptag">Full-stack</span><span class="ptag">UX Design</span><span class="ptag">Web Platform</span>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="proj-section-label">The Challenge</p>
+          <p class="proj-section-text">A traditional matrimony service needed a modern digital platform — with profile management, browsing, and a clean UX designed for a non-technical audience.</p>
+        </div>
+        <div>
+          <p class="proj-section-label">My Implementation</p>
+          <p class="proj-section-text">Designed and developed the full platform including profile creation flows, browsing and matching UI, and an admin panel. Prioritised simplicity and trust-building UX for a traditional user demographic.</p>
+          <div class="proj-outcomes">
+            <div class="proj-outcome">End-to-end platform delivery</div>
+            <div class="proj-outcome">Profile management workflow</div>
+            <div class="proj-outcome">Audience-appropriate UX design</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-meta">
+          <span class="proj-badge">📦 Data System</span>
+          <div class="proj-title-text">Asset Management System</div>
+          <div class="proj-subtitle">Organisational asset tracking · Reporting dashboard</div>
+        </div>
+        <div class="proj-tags-row">
+          <span class="ptag">SQL</span><span class="ptag">Web App</span><span class="ptag">Database</span>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="proj-section-label">The Challenge</p>
+          <p class="proj-section-text">Organisations managing large physical asset inventories struggled with manual tracking, leading to inaccurate records and delayed reporting.</p>
+        </div>
+        <div>
+          <p class="proj-section-label">My Implementation</p>
+          <p class="proj-section-text">Built a web application with SQL-backed asset tracking, real-time status updates, and a reporting dashboard. Admin panel allows full lifecycle management — from acquisition to disposal.</p>
+          <div class="proj-outcomes">
+            <div class="proj-outcome">Real-time asset status tracking</div>
+            <div class="proj-outcome">SQL-driven reporting dashboard</div>
+            <div class="proj-outcome">Full lifecycle management</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-meta">
+          <span class="proj-badge">🎓 Academic System</span>
+          <div class="proj-title-text">Student Academic Management System</div>
+          <div class="proj-subtitle">Record digitisation · Faculty admin portal</div>
+        </div>
+        <div class="proj-tags-row">
+          <span class="ptag">React.js</span><span class="ptag">SQL</span><span class="ptag">Web App</span>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div>
+          <p class="proj-section-label">The Challenge</p>
+          <p class="proj-section-text">Managing student academic records manually was slow and error-prone. Faculty needed a centralised digital system for grade entry, report generation, and data access.</p>
+        </div>
+        <div>
+          <p class="proj-section-label">My Implementation</p>
+          <p class="proj-section-text">Developed a React.js + SQL web application that digitised student records, enabled grade entry, automated report generation, and provided role-based access for faculty and administrators.</p>
+          <div class="proj-outcomes">
+            <div class="proj-outcome">Digitised academic records</div>
+            <div class="proj-outcome">Automated report generation</div>
+            <div class="proj-outcome">Role-based access control</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="fade-in">
+  <p class="s-eye">Career Journey</p>
+  <h2 class="s-title">Professional <span class="dim">Experience</span></h2>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Present</div>
+        <div class="exp-company-name">Current Role</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Junior SQL Developer</div>
+        <div class="exp-org">Full-time position</div>
+        <div class="exp-points">
+          <p class="ep">Develop and execute SQL queries for data validation, reporting, and database management across live systems</p>
+          <p class="ep">Support backend operations, identify and resolve workflow bottlenecks and debugging issues</p>
+          <p class="ep">Drive process optimisation initiatives and maintain accurate, auditable system records</p>
+          <p class="ep">Collaborate with cross-functional teams to improve system efficiency and reporting accuracy</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">May–Dec 2025</div>
+        <div class="exp-company-name">KNILA IT Solutions</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Front-end Developer Intern</div>
+        <div class="exp-org">KNILA IT Solutions · Coimbatore</div>
+        <div class="exp-points">
+          <p class="ep">Delivered web design and front-end development for client-facing business applications</p>
+          <p class="ep">Contributed to documentation, testing workflows, validation activities, and QA processes</p>
+          <p class="ep">Improved application usability and performance — collaborated with backend teams for seamless integration</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+  <p class="s-eye">Let's Connect</p>
+  <div class="contact-inner">
+    <h2 class="contact-title">Ready to build<br><span class="contact-rgb">something together?</span></h2>
+    <p class="contact-sub">Open to full-time roles in SQL development, IT audit, and front-end engineering. Based in Coimbatore — remote-friendly too. Let's talk.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-info-label">Email</div>
+        <a href="mailto:prithvia01@gmail.com" class="contact-info-val">prithvia01@gmail.com</a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-label">LinkedIn</div>
+        <a href="https://linkedin.com/in/prithvialageshan" target="_blank" class="contact-info-val">linkedin.com/in/prithvialageshan</a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-label">Phone</div>
+        <a href="tel:+918072944385" class="contact-info-val">+91 80729 44385</a>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:prithvia01@gmail.com" class="clink primary">✉ Send Email</a>
+      <a href="https://linkedin.com/in/prithvialageshan" target="_blank" class="clink">LinkedIn ↗</a>
+      <a href="tel:+918072944385" class="clink">Call Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 { PRITHVI ALAGESHAN } · COIMBATORE, TAMIL NADU</p>
+  <p>SQL DEV · FRONT-END · IT AUDIT</p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
