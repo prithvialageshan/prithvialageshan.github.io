@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prithvi Alageshan Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -302,10 +303,10 @@
             position: relative;
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
             overflow: hidden;
-            padding-top: var(--space-10);
+            padding-top: 120px;
+            padding-bottom: 80px;
         }
 
         .site-background {
@@ -373,7 +374,8 @@
 
         .hero-content {
             text-align: center;
-            max-width: 900px;
+            max-width: 1100px;
+            margin: auto;
             animation: fadeInUp 1s ease-out;
         }
 
@@ -424,9 +426,10 @@
         }
 
         .hero-title {
-            font-size: var(--font-size-6xl);
+            font-size: 3.25rem;
             font-weight: var(--font-weight-bold);
             margin-bottom: var(--space-5);
+            line-height: 1.2;
             animation: fadeInUp 1s ease-out 0.4s both;
         }
 
@@ -1418,9 +1421,10 @@
 
         .footer-content {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
             gap: var(--space-6);
             margin-bottom: var(--space-8);
         }
@@ -1428,8 +1432,9 @@
         .footer-brand {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             gap: var(--space-4);
+            max-width: 400px;
         }
 
         .footer-logo {
@@ -1438,7 +1443,7 @@
             font-family: var(--font-heading);
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: var(--space-1);
         }
 
@@ -1460,16 +1465,15 @@
 
         .footer-links {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-6);
-            width: 100%;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: var(--space-12);
         }
 
         .footer-column {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .footer-column h4 {
@@ -1482,7 +1486,7 @@
         .footer-column ul {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             gap: var(--space-2);
         }
 
@@ -1500,7 +1504,8 @@
             padding-top: var(--space-6);
             border-top: var(--border-width) solid var(--color-neutral-100);
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: center;
             gap: var(--space-2);
         }
@@ -1684,7 +1689,41 @@
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: var(--space-8);
+            }
+
+            .footer-brand {
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-logo {
+                justify-content: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-8);
+                width: 100%;
+            }
+
+            .footer-column {
+                align-items: center;
+            }
+
+            .footer-column ul {
+                align-items: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: var(--space-4);
             }
 
             .experience-header {
@@ -1941,13 +1980,12 @@
                 <span class="badge-dot"></span>
             </div>
             <h1 class="hero-title">
-                Turning complex datasets
-                <span class="gradient-text">into structured, analytics-ready</span>
-                data solutions.
+                Engineering High-Performance<br>
+                <span class="gradient-text">Front-End Solutions</span> Integrated<br>
+                with Robust System Architecture.
             </h1>
             <p class="hero-subtitle">
-                SQL Developer & Front-end Builder. Passionate about clean systems, risk management, and building tech
-                that actually matters.
+                I specialize in developing intuitive, scalable user interfaces designed for complex data ecosystems. Combining precise front-end execution with strategic risk management, I build secure, optimized systems that deliver measurable business value.
             </p>
             <div class="hero-cta">
                 <a href="#projects" class="btn btn-primary">
@@ -2668,8 +2706,7 @@
                         <span class="logo-text">PRITHVI A</span>
                         <span class="logo-bracket">}</span>
                     </div>
-                    <p>Turning complex datasets into structured, analytics-ready data solutions. Focused on integrity,
-                        performance, and impact.</p>
+                    <p>Engineering high-performance front-end solutions integrated with robust system architecture.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
